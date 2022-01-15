@@ -1,0 +1,98 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Authentication System",
+      "contact": {}
+    },
+    "host": "localhost:8000",
+    "securityDefinitions": {},
+    "schemes": ["http", "https"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+      "/api/url/generateTinyUrl": {
+        "post": {
+          "summary": "For shorten the URL",
+          "tags": ["URL"],
+          "deprecated": false,
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/ShortenURL"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      }, 
+      "/api/url/redirect": {
+        "post": {
+          "summary": "For getting long URL",
+          "tags": ["URL"],
+          "deprecated": false,
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/GetLongUrl"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "ShortenURL": {
+        "title": "Shorten URL",
+        "example": {
+          "longUrl": "https://cloud.mongodb.com/v2/609ff28a08f66c3fa96edf5a#clusters"
+        },
+        "type": "object",
+        "properties": {
+          "longUrl": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "longUrl"
+        ]
+      },
+      "GetLongUrl": {
+        "title": "Get Long URL",
+        "example": {
+          "shortUrl": "http://localhost:8000/GarsTQvBv"
+        },
+        "type": "object",
+        "properties": {
+          "shortUrl": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "shortUrl"
+        ]
+      }
+    }
+  }
+  

@@ -1,0 +1,4 @@
+{
+  "mongouri": "mongodb+srv://",
+  "baseURI": "http://localhost:8000"
+}
